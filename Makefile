@@ -12,8 +12,9 @@ DEPS := $(OBJS:.o=.d)
 
 INC_DIRS := $(shell find $(SRC_DIRS) -type d) ./lib/Adafruit-GFX-Library
 INC_FLAGS := $(addprefix -I,$(INC_DIRS))
+LDFLAGS := `sdl2-config --cflags --libs`
 
-CPPFLAGS := $(INC_FLAGS) -MMD -MP -DARDUINO=100
+CPPFLAGS := $(INC_FLAGS) -MMD -MP -DARDUINO=100 `sdl2-config --cflags --libs`
 
 $(BUILD_DIR)/$(TARGET_EXEC): $(OBJS)
 	$(CXX) $(OBJS) -o $@ $(LDFLAGS)
