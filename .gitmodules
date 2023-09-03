@@ -1,0 +1,6 @@
+[submodule "lib/Adafruit-GFX-Library"]
+	path = lib/Adafruit-GFX-Library
+	url = https://github.com/adafruit/Adafruit-GFX-Library.git
+[submodule "lib/SDL"]
+	path = lib/SDL
+	url = https://github.com/libsdl-org/SDL.git
