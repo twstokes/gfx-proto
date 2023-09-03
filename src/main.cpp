@@ -17,6 +17,21 @@ int matrixWidth, matrixHeight;
 
 VirtualDotMatrix *matrix = new VirtualDotMatrix(width, height, true);
 
+void delay(uint32_t d) {
+    SDL_Delay(d);
+}
+
+void setup() {
+  matrix->fillScreen(0);
+}
+
+void loop() {
+    matrix->setCursor(0, 0);
+    matrix->setTextColor(31 << 11);
+    matrix->print("HELLO");
+    delay(10);
+}
+
 void catch_int(int sig_num) {
     exit(0);
 }
@@ -40,13 +55,8 @@ int main(int argc, char **argv) {
   SDL_RenderPresent(renderer);
 
   texture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGB565, SDL_TEXTUREACCESS_TARGET, width, height);
-  matrix->fillScreen(0);
 
   SDL_Event event;
-  int x = 0;
-  matrix->setCursor(0, 0);
-  matrix->setTextColor(31 << 11);
-  matrix->print("HELLO");
 
   while(true) {
     SDL_PollEvent(&event);
@@ -54,11 +64,10 @@ int main(int argc, char **argv) {
       break;
     }
     SDL_UpdateTexture(texture, NULL, matrix->buffer, width*sizeof(uint16_t));
-
     SDL_RenderClear(renderer);
     SDL_RenderCopy(renderer, texture, NULL, NULL);
     SDL_RenderPresent(renderer);
-    SDL_Delay(10);
+    loop();
   }
 
   SDL_DestroyRenderer(renderer);
