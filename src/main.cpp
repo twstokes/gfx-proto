@@ -3,6 +3,7 @@
 #include <SDL.h>
 
 #include <stdio.h>
+#include <signal.h>
 
 SDL_Window* window = NULL;
 SDL_Renderer* renderer = NULL;
