@@ -23,7 +23,7 @@ void delay(uint32_t d) {
 }
 
 void setup() {
-  matrix->fillScreen(0);
+    matrix->fillScreen(0);
 }
 
 void loop() {
@@ -58,6 +58,7 @@ int main(int argc, char **argv) {
   texture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGB565, SDL_TEXTUREACCESS_TARGET, width, height);
 
   SDL_Event event;
+  setup();
 
   while(true) {
     SDL_PollEvent(&event);
