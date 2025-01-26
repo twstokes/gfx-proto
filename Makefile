@@ -16,7 +16,7 @@ LDFLAGS := `sdl2-config --cflags --libs`
 
 CPPFLAGS := $(INC_FLAGS) -MMD -MP -DARDUINO=100 `sdl2-config --cflags --libs`
 
-$(BUILD_DIR)/$(TARGET_EXEC): $(OBJS)
+$(TARGET_EXEC): $(OBJS)
 	$(CXX) $(OBJS) -o $@ $(LDFLAGS)
 
 $(BUILD_DIR)/%.c.o: %.c
@@ -27,9 +27,8 @@ $(BUILD_DIR)/%.cpp.o: %.cpp
 	mkdir -p $(dir $@)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $< -o $@
 
-
 .PHONY: clean
 clean:
-	rm -r $(BUILD_DIR)
+	rm -r $(BUILD_DIR) $(TARGET_EXEC)
 
 -include $(DEPS)
