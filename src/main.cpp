@@ -15,6 +15,8 @@ int matrixWidth, matrixHeight;
 
 #define width 64
 #define height 32
+// scale factor for high resolution screens
+#define scale 30
 
 VirtualDotMatrix *matrix = new VirtualDotMatrix(width, height, true);
 
@@ -47,8 +49,8 @@ int main(int argc, char **argv) {
   window = SDL_CreateWindow("GFX Proto",
           SDL_WINDOWPOS_UNDEFINED,
           SDL_WINDOWPOS_UNDEFINED,
-          width*10,
-          height*10,
+          width * scale,
+          height * scale,
           SDL_WINDOW_SHOWN);
 
   renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
