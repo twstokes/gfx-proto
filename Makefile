@@ -31,4 +31,10 @@ $(BUILD_DIR)/%.cpp.o: %.cpp
 clean:
 	rm -r $(BUILD_DIR) $(TARGET_EXEC)
 
+init_subs:
+	git submodule update --init --recursive --depth=1
+
+update_subs:
+	git submodule update --recursive --remote
+
 -include $(DEPS)

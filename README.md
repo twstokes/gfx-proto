@@ -7,8 +7,8 @@ This is a tool used to run the [Adafruit GFX library](https://learn.adafruit.com
 
 ## Setup
 
-- Fetch the dependency submodules with `git submodule update --init --recursive --depth=1`
 - Install SDL2 (e.g. `brew install sdl2`)
+- Initialize submodules with `make init_subs`
 
 ## Building
 
@@ -17,3 +17,7 @@ This is a tool used to run the [Adafruit GFX library](https://learn.adafruit.com
 ## Running
 
 `build/gfxproto` which should result in a SDL2 window with output.
+
+## Updating submodules
+
+`make update_subs`
